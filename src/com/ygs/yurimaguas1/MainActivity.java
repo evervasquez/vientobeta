@@ -1,19 +1,33 @@
 package com.ygs.yurimaguas1;
 
+import com.ygs.yurimaguas1.view.CircleFragment;
+import com.ygs.yurimaguas1.view.CircleFragment.OnTimeSetListener;
+import com.ygs.yurimaguas1.view.RadialPickerLayout;
+
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
+import android.view.Window;
 
 public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager()
+        new CircleFragment();
+		getSupportFragmentManager()
         .beginTransaction()
-        .add(R.id.fragment_content, new FragmentView())
+        .add(R.id.fragment_content, CircleFragment.newInstance(new OnTimeSetListener() {
+			
+			public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
+				// TODO Auto-generated method stub
+				
+			}
+		}, 3, 12, false))
         .commit();
+        
     }
 
 
@@ -23,5 +37,6 @@ public class MainActivity extends FragmentActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    
     
 }

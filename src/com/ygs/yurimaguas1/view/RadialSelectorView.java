@@ -118,6 +118,8 @@ public class RadialSelectorView extends View {
             mNumbersRadiusMultiplier =
                     Float.parseFloat(res.getString(R.string.numbers_radius_multiplier_normal));
         }
+        
+        //diametro del circulo de seleccion
         mSelectionRadiusMultiplier =
                 Float.parseFloat(res.getString(R.string.selection_radius_multiplier));
 
@@ -255,7 +257,7 @@ public class RadialSelectorView extends View {
         if (!mDrawValuesReady) {
             mXCenter = getWidth() / 2;
             mYCenter = getHeight() / 2;
-            mCircleRadius = (int) (Math.min(mXCenter, mYCenter) * mCircleRadiusMultiplier);
+            mCircleRadius = (int) (Math.min(mXCenter, mYCenter)+20 * mCircleRadiusMultiplier);
 
             if (!mIs24HourMode) {
                 // We'll need to draw the AM/PM circles, so the main circle will need to have

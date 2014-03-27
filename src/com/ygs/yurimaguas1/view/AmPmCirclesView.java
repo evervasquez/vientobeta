@@ -50,8 +50,8 @@ public class AmPmCirclesView extends View {
     private String mPmText;
     private boolean mIsInitialized;
 
-    private static final int AM = TimePickerDialog.AM;
-    private static final int PM = TimePickerDialog.PM;
+    private static final int AM = CircleFragment.AM;
+    private static final int PM = CircleFragment.PM;
 
     private boolean mDrawValuesReady;
     private int mAmPmCircleRadius;
@@ -141,7 +141,7 @@ public class AmPmCirclesView extends View {
             int layoutXCenter = getWidth() / 2;
             int layoutYCenter = getHeight() / 2;
             int circleRadius =
-                    (int) (Math.min(layoutXCenter, layoutYCenter) * mCircleRadiusMultiplier);
+                    (int) (Math.min(layoutXCenter, layoutYCenter)* mCircleRadiusMultiplier);
             mAmPmCircleRadius = (int) (circleRadius * mAmPmCircleRadiusMultiplier);
             int textSize = mAmPmCircleRadius * 3 / 4;
             mPaint.setTextSize(textSize);

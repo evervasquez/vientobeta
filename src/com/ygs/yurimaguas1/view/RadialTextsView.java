@@ -168,7 +168,7 @@ public class RadialTextsView extends View {
         if (!mDrawValuesReady) {
             mXCenter = getWidth() / 2;
             mYCenter = getHeight() / 2;
-            mCircleRadius = Math.min(mXCenter, mYCenter) * mCircleRadiusMultiplier;
+            mCircleRadius = Math.min(mXCenter, mYCenter)+20 * mCircleRadiusMultiplier;
             if (!mIs24HourMode) {
                 // We'll need to draw the AM/PM circles, so the main circle will need to have
                 // a slightly higher center. To keep the entire view centered vertically, we'll
@@ -176,8 +176,10 @@ public class RadialTextsView extends View {
                 float amPmCircleRadius = mCircleRadius * mAmPmCircleRadiusMultiplier;
                 mYCenter -= amPmCircleRadius / 2;
             }
-
-            mTextSize = mCircleRadius * mTextSizeMultiplier;
+            
+            //tamaño de letra
+            mTextSize = (mCircleRadius * mTextSizeMultiplier) - 30;
+            
             if (mHasInnerCircle) {
                 mInnerTextSize = mCircleRadius * mInnerTextSizeMultiplier;
             }
@@ -232,7 +234,7 @@ public class RadialTextsView extends View {
         float offset3 = numbersRadius / 2f;
         mPaint.setTextSize(textSize);
         // We'll need yTextBase to be slightly lower to account for the text's baseline.
-        yCenter -= (mPaint.descent() + mPaint.ascent()) / 2;
+        yCenter -= ((mPaint.descent() + mPaint.ascent()) / 2);
 
         textGridHeights[0] = yCenter - offset1;
         textGridWidths[0] = xCenter - offset1;

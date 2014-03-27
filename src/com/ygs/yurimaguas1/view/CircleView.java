@@ -86,7 +86,9 @@ public class CircleView extends View {
         if (!mDrawValuesReady) {
             mXCenter = getWidth() / 2;
             mYCenter = getHeight() / 2;
-            mCircleRadius = (int) (Math.min(mXCenter, mYCenter) * mCircleRadiusMultiplier);
+            
+            //aumente el diametro en +18
+            mCircleRadius = (int) ((Math.min(mXCenter, mYCenter)) * mCircleRadiusMultiplier);
 
             if (!mIs24HourMode) {
                 // We'll need to draw the AM/PM circles, so the main circle will need to have
